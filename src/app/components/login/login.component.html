@@ -1,0 +1,23 @@
+<form (submit)="authenticate()" [formGroup]="loginForm" class="mb-5">
+  <div class="form-group mb-2">
+    <br>
+    <label for="email">Email: </label>
+    <br>
+    <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" [formControlName]="'email'" [(ngModel)]="email" style="width: 320px">
+    <div class="error-message text-danger" *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
+    <br>
+    <label for="password">Password: </label>
+    <br>
+    <label name="pass-placeholder"> Must have at least one character</label>
+    <input type="password" class="form-control" id="password" name="password" [formControlName]="'password'" [(ngModel)]="password" style="width: 320px">
+    <div class="error-message text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</div>
+  </div>
+  <br>
+  <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Submit</button>
+  <br>
+  <br>
+  <div *ngIf="hiddenField">
+    <h3 style="color: red">Invalid password or email!</h3>
+  </div>
+
+</form>

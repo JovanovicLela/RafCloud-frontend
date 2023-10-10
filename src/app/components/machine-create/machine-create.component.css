@@ -1,0 +1,10 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}
+
+

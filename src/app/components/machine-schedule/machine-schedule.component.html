@@ -1,0 +1,22 @@
+<div>
+  <br>
+  <form class="mb-5" [formGroup]="scheduleActivityForm">
+    <br>
+    <h3>Schedule machine execution</h3>
+    <br><br>
+    <h5>Pick date:</h5>
+    <br>
+    <input type="date" name="dto" id="dtp0" [formControlName]="'date'">
+    <br><br>
+    <h5>Pick time:</h5>
+    <br>
+    Hours: <input type="number" name="dto" id="t1" [formControlName]="'hour'">
+    Minutes: <input type="number" name="dto" id="t2" [formControlName]="'minute'">
+    Seconds: <input type="number" name="dto" id="t3" [formControlName]="'second'">
+    <br> <br>
+    <button type="button" class="btn btn-success" *ngIf="canStartMachine" (click)="scheduleActivity('start')" [disabled]="!scheduleActivityForm.valid">Schedule start</button>
+    <button type="button" class="btn btn-success" *ngIf="canStopMachine" (click)="scheduleActivity('stop')" [disabled]="!scheduleActivityForm.valid">Schedule stop</button>
+    <button type="button" class="btn btn-success" *ngIf="canRestartMachine" (click)="scheduleActivity('restart') "[disabled]="!scheduleActivityForm.valid">Schedule restart</button>
+
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<div class="main container mx-auto">
+
+  <div class="row g-5 justify-content-center">
+    <div class="col-md-4">
+      <div [routerLink]="'/all-users'" *ngIf="canReadUsers" class="card border-secondary h-100" id="all-users-card">
+        <img src="../../assets/images/users.svg" class="card-img-top w-75 mx-auto p-3" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Read users</h5>
+          <p class="card-text">Provides a list of all the users using RAF Cloud.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br *ngIf="canReadUsers">
+
+  <div class="row g-5 justify-content-center">
+    <div class="col-md-4">
+      <div [routerLink]="'/create-machine'" *ngIf="canCreateMachine" class="card border-secondary h-100" id="create-machine-card">
+        <img src="../../assets/images/machine.svg" class="card-img-top w-75 mx-auto p-3" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Create machines</h5>
+          <p class="card-text">Create new machine by providing the necessary information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br *ngIf="canCreateMachine">
+
+  <div class="row g-5 justify-content-center">
+    <div class="col-md-4">
+      <div [routerLink]="'/search-machine'" *ngIf="canSearchMachine" class="card border-secondary h-100" id="search-machine-card">
+        <img src="../../assets/images/search.svg" class="card-img-top w-75 mx-auto p-3" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Search machines</h5>
+          <p class="card-text">Efficiently find specific machines based on a given criteria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br *ngIf="canSearchMachine">
+
+  <div class="row g-5 justify-content-center">
+    <div class="col-md-4">
+      <div [routerLink]="'/destroy-machine'" *ngIf="canDestroyMachine" class="card border-secondary h-100" id="destroy-machine-card">
+        <img src="../../assets/images/destroy.svg" class="card-img-top w-75 mx-auto p-3" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Destroy machines</h5>
+          <p class="card-text">The process of removing a specific machine or machines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br *ngIf="canDestroyMachine">
+
+
+
+</div>

@@ -1,0 +1,17 @@
+.machine-list {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+}
+machine-list .table tbody tr td button {
+  margin-right: 10px;
+}

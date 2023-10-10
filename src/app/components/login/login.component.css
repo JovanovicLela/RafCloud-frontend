@@ -1,0 +1,10 @@
+.custom-toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+label[name="pass-placeholder"] {
+  font-size: 14px;
+  color: gray;
+}

@@ -1,0 +1,25 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.form-group label {
+  flex: 2;
+  margin-right: 0;
+}
+
+.form-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.form-group input {
+  flex: 11;
+  margin-left: 0;
+}

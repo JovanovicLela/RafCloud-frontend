@@ -1,0 +1,51 @@
+<div class="container">
+  <br>
+  <div class="mb-4">
+    <a [routerLink]="'/create-user/'" *ngIf="canCreateUser" class="btn btn-primary">Go to Create User Page</a>
+  </div>
+
+  <div *ngFor="let user of users |  paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: users.length }" class="card mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4 class="card-title">{{ user.email }}</h4>
+        <div>
+          <a [routerLink]="'/update-user/' + user.email" *ngIf="canUpdateUser" class="btn btn-dark">Update user</a>
+          <br>
+          <button type="button" class="btn btn-danger" *ngIf="canDeleteUser" (click)="deleteUser(user.email)">Delete user</button>
+          <br>
+        </div>
+
+      </div>
+      <br>
+
+      <div *ngIf="canUpdateUser; then clickable else nonClickable"></div>
+      <ng-template #clickable>
+      </ng-template>
+      <ng-template #nonClickable>
+        test
+      </ng-template>
+
+      <ul class="list-group mt-3">
+        <li class="list-group-item">Name: {{ user.name }}</li>
+        <li class="list-group-item">Lastname: {{ user.lastname }}</li>
+        <br>
+        <label>Permissions: </label>
+        <li class="list-group-item" *ngIf="user.permission.can_read_users">Read Users Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_create_users">Create User Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_update_users">Update User Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_delete_users">Delete User Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_start_machines">Start Machines Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_stop_machines">Stop Machines Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_restart_machines">Restart Machines Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_search_machines">Search Machines Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_create_machines">Create Machines Permission</li>
+        <li class="list-group-item" *ngIf="user.permission.can_destroy_machines">Destroy Machines Permission</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-8 py-5 flex justify-center items-center">
+    <pagination-controls (pageChange)="currentPage = ($event)" previousLabel="Previous"
+                         nextLabel="Next"></pagination-controls>
+  </div>
+</div>
+

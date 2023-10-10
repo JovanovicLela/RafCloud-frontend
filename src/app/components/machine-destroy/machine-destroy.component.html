@@ -1,0 +1,28 @@
+<div>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Activity</th>
+      <th scope="col">Creation date</th>
+      <th scope="col">Destroy action</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let machine of machines; let i = index;" class="mb-2">
+    <tr>
+      <td>{{machine.name}}</td>
+      <td>{{machine.status}}</td>
+      <td>
+        <div *ngIf="machine.active; then activeMachine else inActiveMachine"></div>
+        <ng-template #activeMachine>Active</ng-template>
+        <ng-template #inActiveMachine>Inactive</ng-template>
+      </td>
+      <td>{{machine.creationDate | date: 'dd/MM/yyyy'}}</td>
+      <td>
+        <button type="button " class="btn btn-primary btn-sm" (click)="deleteMachine(machine)">Destroy machine</button>
+      </td>
+    </tbody>
+  </table>
+</div>

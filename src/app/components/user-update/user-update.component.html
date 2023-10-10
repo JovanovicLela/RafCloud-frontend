@@ -1,0 +1,84 @@
+<div>
+  <form (submit)="updateUser()" [formGroup]="updateUserForm" class="mb-5">
+    <div class="form-group mb-2">
+      <label for="name">Name: </label>
+      <br>
+      <input type="text" class="form-control" id="name" name="name" [formControlName]="'name'" value="{{userOldValues.name}}">
+      <div class="error-message text-danger" *ngIf="updateUserForm.get('name')?.errors?.['required']">Name is required!</div>
+      <br>
+      <label for="lastname">Lastname: </label>
+      <br>
+      <input type="text" class="form-control" id="lastname" name="lastname" [formControlName]="'lastname'" value="{{userOldValues.lastname}}">
+      <div class="error-message text-danger" *ngIf="updateUserForm.get('lastname')?.errors?.['required']">Lastname is required!</div>
+      <br>
+ <!--     <label for="email">Email: </label>
+      <br>
+      <input type="email" class="form-control" id="email" name="email" [formControlName]="'email'"  [readonly]="isEmailReadOnly" value="{{userOldValues.email}}">
+      <br>
+ -->     <label for="password">Password: </label>
+      <br>
+      <input type="password" class="form-control" id="password" name="password"  [formControlName]="'password'">
+      <div class="error-message text-danger" *ngIf="updateUserForm.get('password')?.errors?.['required']">Password is required!</div>
+      <br>
+      <div>
+        <label>Current permissions: </label>
+        <br>
+        <label *ngIf="canReadPropertyBinding"> Can read users</label>
+        <br *ngIf="canReadPropertyBinding">
+
+        <label *ngIf="canCreatePropertyBinding">Can create users</label>
+        <br *ngIf="canCreatePropertyBinding">
+
+        <label *ngIf="canUpdatePropertyBinding">Can update users</label>
+        <br *ngIf="canUpdatePropertyBinding">
+
+        <label *ngIf="canDeletePropertyBinding">Can delete users</label>
+        <br *ngIf="canDeletePropertyBinding">
+
+        <label *ngIf="canSearchMachinesPropertyBinding">Can search machines</label>
+        <br *ngIf="canSearchMachinesPropertyBinding">
+
+        <label *ngIf="canStartMachinesPropertyBinding">Can start machines</label>
+        <br *ngIf="canStartMachinesPropertyBinding">
+
+        <label *ngIf="canStopMachinesPropertyBinding">Can stop machines</label>
+        <br *ngIf="canStopMachinesPropertyBinding">
+
+        <label *ngIf="canRestartMachinesPropertyBinding">Can restart machines</label>
+        <br *ngIf="canRestartMachinesPropertyBinding">
+
+        <label *ngIf="canCreateMachinesPropertyBinding">Can create machines</label>
+        <br *ngIf="canCreateMachinesPropertyBinding">
+
+        <label *ngIf="canDestroyMachinesPropertyBinding">Can destroy machines</label>
+      </div>
+      <br>
+      <label>New permissions: </label>
+      <br>
+      <!-- property binding [vrednost atrbiuta] = nesto -->
+      <input type="checkbox" class="can_read" id="can_read" name="can_read" [formControlName]="'can_read'"> Can read users
+      <br>
+      <input type="checkbox" class="can_create_users" id="can_create_users" name="can_create_users" [formControlName]="'can_create_users'"> Can create users
+      <br>
+      <input type="checkbox" class="can_update" id="can_update" name="password" [formControlName]="'can_update'"> Can update users
+      <br>
+      <input type="checkbox" class="can_delete" id="can_delete" name="can_delete" [formControlName]="'can_delete'"> Can delete users
+      <br>
+      <input type="checkbox" class="can_search" id="can_search" name="can_search" [formControlName]="'can_search'"> Can search machines
+      <br>
+      <input type="checkbox" class="can_start" id="can_start" name="can_start" [formControlName]="'can_start'"> Can start machines
+      <br>
+      <input type="checkbox" class="can_stop" id="can_stop" name="can_stop" [formControlName]="'can_stop'"> Can stop machines
+      <br>
+      <input type="checkbox" class="can_restart" id="can_restart" name="can_restart" [formControlName]="'can_restart'"> Can restart machines
+      <br>
+      <input type="checkbox" class="can_create_machines" id="can_create_machines" name="can_create_machines" [formControlName]="'can_create_machines'"> Can create machines
+      <br>
+      <input type="checkbox" class="can_destroy" id="can_destroy" name="can_destroy" [formControlName]="'can_destroy'"> Can destroy machines
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <br>
+  </form>
+</div>

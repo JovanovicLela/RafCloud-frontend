@@ -1,0 +1,27 @@
+<div>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Error date</th>
+      <th scope="col">Machine id</th>
+      <th scope="col">Machine name</th>
+      <th scope="col">Type of scheduled action</th>
+      <th scope="col">Error message</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let errorMessage of errorMessages |  paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: errorMessages.length }" class="mb-2">
+    <tr>
+      <td>{{ errorMessage.date | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ errorMessage.machine.machineId }}</td>
+      <td>{{ errorMessage.machine.name }}</td>
+      <td>{{ errorMessage.actionType }}</td>
+      <td>{{ errorMessage.message }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="mt-8 py-5 flex justify-center items-center">
+    <pagination-controls  (pageChange)="currentPage = ($event)" previousLabel="Previous" nextLabel="Next" ></pagination-controls>
+  </div>
+</div>
